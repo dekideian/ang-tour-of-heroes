@@ -1,0 +1,12 @@
+[
+    {
+      "origin": ["https://first-572b9.web.app"],
+      "method": ["GET"],
+      "maxAgeSeconds": 3600
+    },
+    {
+        "origin": ["http://locahost:8080"],
+        "method": ["GET"],
+        "maxAgeSeconds": 3600
+      }
+  ]

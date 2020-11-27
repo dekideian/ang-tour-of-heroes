@@ -17,6 +17,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 
 
+import { AngularFireModule } from '@angular/fire';
+import { HomeComponent } from './home/home.component';
+import { FirebaseService } from './services/firebase.service';
+import { SecretComponentComponent } from './secret-component/secret-component.component';
+
 
 @NgModule({
   declarations: [
@@ -25,9 +30,21 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
     HeroDetailsComponent,
     MessagesComponent,
     DashboardComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    HomeComponent,
+    SecretComponentComponent
   ],
   imports: [
+    AngularFireModule.initializeApp({
+      apiKey: "AIzaSyAqWHJOrxml2AarR51AO70JODMezuLQmhs",
+      authDomain: "first-572b9.firebaseapp.com",
+      databaseURL: "https://first-572b9.firebaseio.com",
+      projectId: "first-572b9",
+      storageBucket: "first-572b9.appspot.com",
+      messagingSenderId: "575014036382",
+      appId: "1:575014036382:web:77ff52a0447e44af1a6c8f",
+      measurementId: "G-RS9KN9YS4V"
+    }),
     BrowserModule,
     FormsModule,
     HttpClientModule,
@@ -39,7 +56,7 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
       InMemoryDataService, { dataEncapsulation: false }
     )
   ],
-  providers: [],
+  providers: [FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

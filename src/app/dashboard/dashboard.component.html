@@ -8,5 +8,28 @@
     </div>
   </a>
 </div>
-hello nurse!
+
 <app-hero-search></app-hero-search>
+<hr>
+Official one
+<div *ngIf="auth.user$ | async as user; else login"> 
+  {{user|json}} 
+  <hr>
+  <button class="button" (click)="auth.signOut()">Sign out</button>
+
+</div>
+<ng-template #login>
+  <button class="button" (click)="auth.googleSignin()">Sign in</button>
+</ng-template>
+
+<hr>
+<div *ngIf="!isSignedIn">
+  
+  <h2>Sign in</h2>
+  <input type="text" #email>
+  <input type="text" #password>
+  <button (click)="signIn(email.value, password.value)">sign in</button>
+</div>
+
+<app-home *ngIf = "isSignedIn" (isLogout)="handleLogout()"></app-home>
+<hr>
